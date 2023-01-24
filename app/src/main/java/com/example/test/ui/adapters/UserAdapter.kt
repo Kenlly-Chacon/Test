@@ -26,7 +26,16 @@ class UserAdapter(private val itemClick : (Countries) -> Unit) :
             binding.txtV2.text = item.country
             Picasso.get().load("https://countryflagsapi.com/png/" + item.alternateName)
                 .into(binding.countryImage);
-            itemClick(item)
+
+//           para solo uno un seccion
+            /* binding.countryImage.setOnClickListener(){
+                itemClick(item)
+            }*/
+
+            //Para todo el elemento
+            itemView.setOnClickListener{
+                itemClick(item)
+            }
         }
 
     }
